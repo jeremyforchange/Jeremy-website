@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jeremy Armando Rodriguez | Campaign Manager & Finance Director</title>
+  <meta name="description" content="Jeremy Armando Rodriguez (Jeremy Rodriguez) is a Florida-based campaign manager, fundraising director, and political strategist." />
+  <style>
+    /* SLEEK B&W DESIGN SYSTEM */
+    :root {
+      --black: #050505;
+      --white: #ffffff;
+      --gray-50: #f9f9f9;
+      --gray-100: #f0f0f0;
+      --gray-200: #e0e0e0;
+      --gray-400: #a0a0a0;
+      --gray-600: #666666;
+      --gray-800: #222222;
+      --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --font-serif: Georgia, "Times New Roman", serif;
+      --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* TYPOGRAPHY */
+    h1, h2, h3, h4 { font-family: var(--font-sans); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; }
+    h1 { font-size: clamp(2.8rem, 6vw, 5.5rem); text-transform: uppercase; }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); text-transform: uppercase; margin-bottom: 1.5rem; }
+    h3 { font-size: 1.4rem; margin-bottom: 0.5rem; text-transform: uppercase; }
+    p { font-family: var(--font-serif); font-size: 1.1rem; color: var(--gray-600); margin-bottom: 1.25rem; }
+    a { color: inherit; text-decoration: none; }
+
+    .container { width: min(1100px, calc(100% - 2rem)); margin: 0 auto; }
+
+    /* SCROLL REVEAL CLASSES */
+    .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    /* NAVIGATION */
+    .site-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--gray-200);
+      transition: var(--transition);
+    }
+    .site-header.scrolled { border-bottom: 2px solid var(--black); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    .nav { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+    .nav-logo { font-weight: 900; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em; z-index: 101; }
+    
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--black); transition: var(--transition); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* MOBILE MENU */
+    .menu-btn { display: none; background: none; border: none; cursor: pointer; z-index: 101; width: 30px; height: 20px; position: relative; }
+    .menu-btn span { display: block; width: 100%; height: 2px; background: var(--black); position: absolute; transition: var(--transition); }
+    .menu-btn span:nth-child(1) { top: 0; }
+    .menu-btn span:nth-child(2) { top: 9px; }
+    .menu-btn span:nth-child(3) { top: 18px; }
+    .menu-btn.active span:nth-child(1) { top: 9px; transform: rotate(45deg); }
+    .menu-btn.active span:nth-child(2) { opacity: 0; }
+    .menu-btn.active span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
+
+    /* HERO */
+    .hero { padding: 160px 0 100px; background: var(--white); border-bottom: 2px solid var(--black); }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5rem; align-items: center; }
+    .hero h1 { margin-bottom: 1.5rem; }
+    .hero p.lead { font-size: 1.25rem; font-family: var(--font-sans); color: var(--gray-600); max-width: 600px; margin-bottom: 2rem; }
+    .hero-meta { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .hero-meta span { border: 1px solid var(--gray-200); padding: 0.5rem 1rem; border-radius: 50px; }
+    
+    .hero-image-container { position: relative; aspect-ratio: 3/4; }
+    .hero-image-container::before {
+      content: ''; position: absolute; top: 20px; left: -20px; right: 20px; bottom: -20px;
+      border: 2px solid var(--black); z-index: 0; transition: var(--transition);
+    }
+    .hero-image-container:hover::before { top: 10px; left: -10px; right: 10px; bottom: -10px; }
+    .hero-image-container img {
+      position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover;
+      filter: grayscale(100%) contrast(1.1); border: 2px solid var(--black);
+    }
+
+    /* SECTIONS */
+    section { padding: 100px 0; border-bottom: 2px solid var(--black); }
+    .section-dark { background: var(--black); color: var(--white); }
+    .section-dark p { color: var(--gray-400); }
+    .section-dark h2 { color: var(--white); }
+
+    /* EXPERIENCE */
+    .exp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .exp-item { 
+      border: 2px solid var(--white); padding: 2rem; transition: var(--transition); 
+      background: var(--black); color: var(--white); cursor: default;
+    }
+    .exp-item:hover { background: var(--white); color: var(--black); transform: translateY(-5px); }
+    .exp-item:hover p { color: var(--gray-600); }
+    .exp-item .role { font-family: var(--font-sans); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray-400); margin-bottom: 1rem; display: block; transition: var(--transition); }
+    .exp-item:hover .role { color: var(--gray-600); }
+
+    /* RESULTS / INTERACTIVE COUNTERS */
+    .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; text-align: center; }
+    .result-stat { font-size: clamp(3rem, 6vw, 5rem); font-weight: 800; letter-spacing: -0.05em; line-height: 1; margin-bottom: 0.5rem; font-family: var(--font-sans); }
+    .result-label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; color: var(--gray-600); }
+
+    /* COMMUNITY */
+    .community-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .community-list { list-style: none; }
+    .community-list li { 
+      border-bottom: 1px solid var(--gray-200); padding: 1.2rem 0; 
+      font-family: var(--font-sans); font-weight: 600; font-size: 1.1rem;
+      transition: var(--transition); display: flex; align-items: center; gap: 10px;
+    }
+    .community-list li::before { content: '→'; font-weight: 900; transition: var(--transition); }
+    .community-list li:hover { padding-left: 10px; }
+    .community-list li:hover::before { transform: translateX(5px); }
+
+    /* CONTACT */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact-item strong { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem; color: var(--gray-400); }
+    .contact-item a, .contact-item span { font-size: 1.2rem; font-family: var(--font-serif); }
+    
+    .email-wrapper { display: flex; align-items: center; gap: 1rem; }
+    .copy-btn { 
+      background: transparent; border: 1px solid var(--gray-600); color: var(--white); 
+      padding: 0.4rem 0.8rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; 
+      cursor: pointer; transition: var(--transition); border-radius: 4px;
+    }
+    .copy-btn:hover { background: var(--white); color: var(--black); border-color: var(--white); }
+    .copy-btn.copied { background: #4CAF50; border-color: #4CAF50; color: white; }
+
+    .btn {
+      display: inline-block; padding: 1.2rem 2.5rem; background: var(--white); color: var(--black); 
+      font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; border: 2px solid var(--white); 
+      transition: var(--transition); cursor: pointer; text-align: center;
+    }
+    .btn:hover { background: transparent; color: var(--white); }
+
+    /* FOOTER */
+    .site-footer { padding: 3rem 0; font-size: 0.85rem; font-family: var(--font-sans); text-align: center; color: var(--gray-600); background: var(--white); }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 900px) {
+      .hero-grid, .exp-grid, .results-grid, .community-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .hero { padding: 130px 0 60px; }
+      .hero-image-container { max-width: 350px; margin: 0 auto; aspect-ratio: 1/1; }
+      
+      /* Mobile Nav */
+      .menu-btn { display: block; }
+      .nav-links {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+        background: var(--white); flex-direction: column; justify-content: center; align-items: center;
+        gap: 2rem; transform: translateY(-100%); transition: var(--transition); z-index: 100;
+      }
+      .nav-links.active { transform: translateY(0); }
+      .nav-links a { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="header">
+    <div class="container nav">
+      <a href="#" class="nav-logo">Jeremy Armando Rodriguez</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="about">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <h1>Jeremy Armando Rodriguez</h1>
+          <p class="lead">Florida-based Campaign Manager & Finance Director. Strategic fundraising, disciplined operations, and community-driven advocacy.</p>
+          <div class="hero-meta">
+            <span>Orlando, FL</span>
+            <span>Campaign Strategy</span>
+            <span>Political Finance</span>
+          </div>
+        </div>
+        <div class="hero-image-container reveal">
+          <img src="headshot.jpg" alt="Jeremy Armando Rodriguez" />
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section-dark" id="experience">
+      <div class="container">
+        <div class="reveal">
+          <h2>Professional Campaign Experience</h2>
+          <p style="max-width: 700px; margin-bottom: 3rem;">A proven track record of managing high-stakes, competitive races and building the financial infrastructure required for electoral victory.</p>
+        </div>
+        
+        <div class="exp-grid">
+          <div class="exp-item reveal">
+            <span class="role">Finance & Campaign Leadership</span>
+            <h3>Maxwell Frost for Congress</h3>
+            <p>Joined the historic 2022 campaign as an initial team member and finance companion, playing a pivotal role in electing the nation's first Gen Z Congressman.</p>
+          </div>
+          <div class="exp-item reveal">
+            <span class="role">Strategic Campaign Support</span>
+            <h3>Darren Soto for Congress</h3>
+            <p>Contributed strategic expertise to one of Florida's most competitive congressional re-election campaigns, securing a decisive victory.</p>
+          </div>
+          <div class="exp-item reveal">
+            <span class="role">Campaign Management</span>
+            <h3>Anne Douglas for School Board</h3>
+            <p>Helped drive a resounding 19-point victory in the most competitive Orange County School Board race in District 4.</p>
+          </div>
+          <div class="exp-item reveal">
+            <span class="role">Campaign Management</span>
+            <h3>Nate Douglas for State House</h3>
+            <p>Supported a Gen Z candidate in achieving success in one of Florida's toughest state legislative contests.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE RESULTS -->
+    <section>
+      <div class="container">
+        <h2 class="reveal">Selected Results</h2>
+        <div class="results-grid">
+          <div class="reveal">
+            <div class="result-stat"><span class="counter" data-target="4.5">0</span>M+</div>
+            <div class="result-label">Grant Funding Awarded</div>
+          </div>
+          <div class="reveal">
+            <div class="result-stat"><span class="counter" data-target="19">0</span> Pt.</div>
+            <div class="result-label">Victory Margin</div>
+          </div>
+          <div class="reveal">
+            <div class="result-stat">$<span class="counter" data-target="100">0</span>K</div>
+            <div class="result-label">Trans Care Fund Raised</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY -->
+    <section id="community" style="background: var(--gray-50);">
+      <div class="container community-grid">
+        <div class="reveal">
+          <h2>Community & Advocacy</h2>
+          <p>Beyond campaign management, Jeremy is a dedicated community leader, serving on the board of the Contigo Fund and spearheading initiatives for LGBTQIA+ equality and trans healthcare access in Central Florida.</p>
+          <p>As a first-generation college student and nonbinary Mexican-American from Pine Hills, Jeremy's work is rooted in a deep commitment to social justice and transformative education.</p>
+        </div>
+        <div class="reveal">
+          <ul class="community-list">
+            <li>Board Member, Contigo Fund</li>
+            <li>Founder, Central Florida Trans Care Fund</li>
+            <li>Founder, Future Leaders of Orlando (FLO)</li>
+            <li>Top 5 LGBTQIA+ Leaders in Central FL</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section-dark" id="contact">
+      <div class="container contact-grid">
+        <div class="reveal">
+          <h2>Get In Touch</h2>
+          <p style="margin-bottom: 2rem;">For campaign management, finance director services, or strategic consulting inquiries, connect via email or LinkedIn.</p>
+          <div class="contact-info">
+            <div class="contact-item">
+              <strong>Email</strong>
+              <div class="email-wrapper">
+                <a href="mailto:jeremyforchange@gmail.com" id="emailText">jeremyforchange@gmail.com</a>
+                <button class="copy-btn" id="copyBtn" onclick="copyEmail()">Copy</button>
+              </div>
+            </div>
+            <div class="contact-item">
+              <strong>LinkedIn</strong>
+              <a href="https://www.linkedin.com/in/jeremy-rodriguez-6aaa16240" target="_blank" rel="noopener">linkedin.com/in/jeremy-rodriguez-6aaa16240</a>
+            </div>
+            <div class="contact-item">
+              <strong>Location</strong>
+              <span>Orlando, Florida</span>
+            </div>
+          </div>
+        </div>
+        <div class="reveal" style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 2rem;">
+           <p style="font-size: 1.3rem; color: var(--white);">Ready to build a winning campaign or need expert financial management for your committee? Let's start the conversation.</p>
+           <a href="mailto:jeremyforchange@gmail.com" class="btn">Email Jeremy</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Jeremy Armando Rodriguez. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // 1. STICKY HEADER EFFECT
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) { header.classList.add('scrolled'); } 
+      else { header.classList.remove('scrolled'); }
+    });
+
+    // 2. MOBILE MENU TOGGLE
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => {
+      menuBtn.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuBtn.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // 3. SCROLL REVEAL ANIMATIONS
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { root: null, threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // 4. INTERACTIVE COUNTER ANIMATION
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200; // The lower the slower
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          const target = +counter.getAttribute('data-target');
+          let count = 0;
+          const updateCount = () => {
+            const inc = target / speed;
+            if (count < target) {
+              count += inc;
+              counter.innerText = count % 1 !== 0 ? count.toFixed(1) : Math.ceil(count);
+              setTimeout(updateCount, 15);
+            } else {
+              counter.innerText = target;
+            }
+          };
+          updateCount();
+          observer.unobserve(counter);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(counter => counterObserver.observe(counter));
+
+    // 5. CLICK-TO-COPY EMAIL
+    function copyEmail() {
+      const email = "jeremyforchange@gmail.com";
+      navigator.clipboard.writeText(email).then(() => {
+        const btn = document.getElementById('copyBtn');
+        btn.innerText = "Copied!";
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerText = "Copy";
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
