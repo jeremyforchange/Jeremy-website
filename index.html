@@ -81,8 +81,11 @@
     
     .hero-image-container { position: relative; aspect-ratio: 4/5; overflow: hidden; }
     .hero-image-container img {
-      width: 100%; height: 100%; object-fit: cover;
-      filter: grayscale(100%) contrast(1.1); transition: var(--transition);
+      width: 100%; height: 100%; 
+      object-fit: cover;
+      object-position: top; 
+      filter: grayscale(100%) contrast(1.1); 
+      transition: var(--transition);
     }
     .hero-image-container:hover img { transform: scale(1.03); }
 
@@ -92,7 +95,7 @@
     .section-dark p { color: var(--gray-400); }
     .section-dark h2 { color: var(--white); }
 
-    /* EDITORIAL PHOTO GALLERY (CHANEL INSPIRED) */
+    /* EDITORIAL PHOTO GALLERY */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -107,7 +110,6 @@
     .gallery-item.tall { aspect-ratio: 3/4; }
     .gallery-item img {
       width: 100%; height: 100%; object-fit: cover;
-      filter: grayscale(100%) contrast(1.1);
       transition: var(--transition);
     }
     .gallery-item:hover img { transform: scale(1.05); }
@@ -129,7 +131,7 @@
     .result-stat { font-size: clamp(3rem, 6vw, 5rem); font-weight: 300; letter-spacing: -0.05em; line-height: 1; margin-bottom: 1rem; font-family: var(--font-sans); }
     .result-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; color: var(--gray-600); }
 
-    /* COMMUNITY */
+    /* COMMUNITY & EXPERTISE */
     .community-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
     .community-list { list-style: none; }
     .community-list li { 
@@ -221,7 +223,6 @@
           </div>
         </div>
         <div class="hero-image-container reveal">
-          <!-- UPDATED TO headshot1.jpg -->
           <img src="headshot1.jpg" alt="Jeremy Armando Rodriguez" />
         </div>
       </div>
@@ -298,16 +299,6 @@
               <p>Campaign Management</p>
             </div>
           </div>
-          
-          <!-- Image 8: Headshot 2 -->
-          <div class="gallery-item reveal">
-            <!-- UPDATED TO headshot1.jpg -->
-            <img src="headshot1.jpg" alt="Jeremy Rodriguez" style="object-position: top;" />
-            <div class="gallery-caption">
-              <h3>Strategic Leadership</h3>
-              <p>Finance Director Services</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -333,20 +324,20 @@
       </div>
     </section>
 
-    <!-- COMMUNITY -->
+    <!-- COMMUNITY & EXPERTISE -->
     <section id="community" style="background: var(--gray-50);">
       <div class="container community-grid">
         <div class="reveal">
-          <h2 style="text-align: left;">Community & Advocacy</h2>
+          <h2 style="text-align: left;">Community & Expertise</h2>
           <p>Beyond campaign management, Jeremy is a dedicated national community leader, serving on the board of the Contigo Fund and spearheading initiatives for LGBTQIA+ equality and trans healthcare access.</p>
-          <p>As a first-generation college student and nonbinary Mexican-American, Jeremy's work is rooted in a deep commitment to social justice and transformative education nationwide.</p>
+          <p>As a first-generation college student and nonbinary Mexican-American, Jeremy's work is rooted in a deep commitment to social justice and transformative education nationwide. Additionally, Jeremy brings professional-level video and photo editing skills to campaign communications, ensuring high-quality digital outreach.</p>
         </div>
         <div class="reveal">
           <ul class="community-list">
             <li>Board Member, Contigo Fund</li>
             <li>Founder, Central Florida Trans Care Fund</li>
             <li>Founder, Future Leaders of Orlando (FLO)</li>
-            <li>Top 5 LGBTQIA+ Leaders</li>
+            <li>Professional Video & Photo Editing</li>
           </ul>
         </div>
       </div>
