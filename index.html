@@ -4,18 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jeremy Armando Rodriguez | National Campaign Manager & Finance Director</title>
-  <meta name="description" content="Jeremy Armando Rodriguez is a national campaign manager, fundraising director, and political strategist." />
   <style>
-    /* CHANEL-INSPIRED EDITORIAL DESIGN SYSTEM */
     :root {
       --black: #000000;
       --white: #ffffff;
       --gray-50: #fafafa;
-      --gray-100: #f0f0f0;
       --gray-200: #e5e5e5;
       --gray-400: #a3a3a3;
       --gray-600: #666666;
-      --gray-800: #222222;
       --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
       --font-serif: Georgia, "Times New Roman", serif;
       --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -23,45 +19,27 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-sans);
-      background: var(--white);
-      color: var(--black);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
+    body { font-family: var(--font-sans); background: var(--white); color: var(--black); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 
-    /* TYPOGRAPHY */
     h1, h2, h3, h4 { font-family: var(--font-sans); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; }
     h1 { font-size: clamp(3rem, 6vw, 5.5rem); text-transform: uppercase; letter-spacing: 0.05em; }
     h2 { font-size: clamp(1.5rem, 3vw, 2.5rem); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2rem; text-align: center; }
-    h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
     p { font-family: var(--font-serif); font-size: 1.1rem; color: var(--gray-600); margin-bottom: 1.5rem; }
     a { color: inherit; text-decoration: none; }
 
     .container { width: min(1300px, calc(100% - 4rem)); margin: 0 auto; }
-
-    /* SCROLL REVEAL */
     .reveal { opacity: 0; transform: translateY(40px); transition: var(--transition); }
     .reveal.active { opacity: 1; transform: translateY(0); }
 
-    /* NAVIGATION */
-    .site-header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(255,255,255,0.98); backdrop-filter: blur(10px);
-      transition: var(--transition);
-    }
+    .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); transition: var(--transition); }
     .site-header.scrolled { padding: 0.5rem 0; border-bottom: 1px solid var(--gray-200); }
     .nav { display: flex; justify-content: space-between; align-items: center; height: 80px; }
     .nav-logo { font-weight: 600; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.15em; z-index: 101; }
-    
     .nav-links { display: flex; gap: 3rem; list-style: none; }
     .nav-links a { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; position: relative; }
     .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--black); transition: var(--transition); }
     .nav-links a:hover::after { width: 100%; }
 
-    /* MOBILE MENU */
     .menu-btn { display: none; background: none; border: none; cursor: pointer; z-index: 101; width: 30px; height: 20px; position: relative; }
     .menu-btn span { display: block; width: 100%; height: 1px; background: var(--black); position: absolute; transition: var(--transition); }
     .menu-btn span:nth-child(1) { top: 0; }
@@ -71,122 +49,72 @@
     .menu-btn.active span:nth-child(2) { opacity: 0; }
     .menu-btn.active span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
 
-    /* HERO - EDITORIAL STYLE */
-    .hero { padding: 140px 0 80px; background: var(--white); }
+    .hero { padding: 160px 0 80px; background: var(--white); }
     .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    
+    /* UPDATED: ICON STYLES */
+    .seal-container { margin-bottom: 2rem; text-align: center; }
+    /* This filter turns your blue logo into a sharp black-and-white icon */
+    .seal-container img { width: 110px; height: 110px; filter: grayscale(100%) contrast(1.5); opacity: 0.9; margin-bottom: 0.5rem; }
+    .seal-disclaimer { font-size: 0.6rem; font-family: var(--font-sans); text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray-400); }
+
     .hero h1 { margin-bottom: 2rem; }
     .hero p.lead { font-size: 1.2rem; font-family: var(--font-sans); color: var(--gray-600); max-width: 500px; margin-bottom: 3rem; letter-spacing: 0.02em; }
     .hero-meta { display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; }
     .hero-meta span { border-bottom: 1px solid var(--black); padding-bottom: 0.2rem; }
     
     .hero-image-container { position: relative; aspect-ratio: 4/5; overflow: hidden; }
-    .hero-image-container img {
-      width: 100%; height: 100%; 
-      object-fit: cover;
-      object-position: top; 
-      filter: grayscale(100%) contrast(1.1); 
-      transition: var(--transition);
-    }
+    .hero-image-container img { width: 100%; height: 100%; object-fit: cover; object-position: top; filter: grayscale(100%) contrast(1.1); transition: var(--transition); }
     .hero-image-container:hover img { transform: scale(1.03); }
 
-    /* SECTIONS */
     section { padding: 120px 0; }
     .section-dark { background: var(--black); color: var(--white); }
     .section-dark p { color: var(--gray-400); }
     .section-dark h2 { color: var(--white); }
 
-    /* EDITORIAL PHOTO GALLERY */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      aspect-ratio: 4/3;
-    }
+    .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3rem; }
+    .gallery-item { position: relative; overflow: hidden; aspect-ratio: 4/3; }
     .gallery-item.tall { aspect-ratio: 3/4; }
-    .gallery-item img {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: var(--transition);
-    }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
     .gallery-item:hover img { transform: scale(1.05); }
-    
-    .gallery-caption {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 2rem;
-      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-      color: var(--white);
-      opacity: 0; transform: translateY(20px);
-      transition: var(--transition);
-    }
+    .gallery-caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); color: var(--white); opacity: 0; transform: translateY(20px); transition: var(--transition); }
     .gallery-item:hover .gallery-caption { opacity: 1; transform: translateY(0); }
     .gallery-caption h3 { color: var(--white); font-size: 1rem; margin-bottom: 0.2rem; }
     .gallery-caption p { color: var(--gray-200); font-size: 0.85rem; margin: 0; font-family: var(--font-sans); }
 
-    /* RESULTS */
     .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; text-align: center; margin-top: 4rem; }
     .result-stat { font-size: clamp(3rem, 6vw, 5rem); font-weight: 300; letter-spacing: -0.05em; line-height: 1; margin-bottom: 1rem; font-family: var(--font-sans); }
     .result-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; color: var(--gray-600); }
 
-    /* COMMUNITY & EXPERTISE */
     .community-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
     .community-list { list-style: none; }
-    .community-list li { 
-      border-bottom: 1px solid var(--gray-200); padding: 1.5rem 0; 
-      font-family: var(--font-sans); font-weight: 400; font-size: 1rem;
-      text-transform: uppercase; letter-spacing: 0.05em;
-      transition: var(--transition); display: flex; align-items: center; gap: 10px;
-    }
+    .community-list li { border-bottom: 1px solid var(--gray-200); padding: 1.5rem 0; font-family: var(--font-sans); font-weight: 400; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; transition: var(--transition); display: flex; align-items: center; gap: 10px; }
     .community-list li:hover { padding-left: 10px; border-bottom: 1px solid var(--black); }
 
-    /* CONTACT */
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; }
     .contact-info { display: flex; flex-direction: column; gap: 2rem; }
     .contact-item strong { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.5rem; color: var(--gray-400); }
     .contact-item a, .contact-item span { font-size: 1.2rem; font-family: var(--font-serif); }
-    
     .email-wrapper { display: flex; align-items: center; gap: 1rem; }
-    .copy-btn { 
-      background: transparent; border: 1px solid var(--gray-600); color: var(--white); 
-      padding: 0.4rem 0.8rem; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; 
-      cursor: pointer; transition: var(--transition); letter-spacing: 0.1em;
-    }
+    .copy-btn { background: transparent; border: 1px solid var(--gray-600); color: var(--white); padding: 0.4rem 0.8rem; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; cursor: pointer; transition: var(--transition); letter-spacing: 0.1em; }
     .copy-btn:hover { background: var(--white); color: var(--black); border-color: var(--white); }
     .copy-btn.copied { background: #4CAF50; border-color: #4CAF50; color: white; }
-
-    .btn {
-      display: inline-block; padding: 1.2rem 3rem; background: var(--white); color: var(--black); 
-      font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.8rem; 
-      border: 1px solid var(--white); transition: var(--transition); cursor: pointer; text-align: center;
-    }
+    .btn { display: inline-block; padding: 1.2rem 3rem; background: var(--white); color: var(--black); font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.8rem; border: 1px solid var(--white); transition: var(--transition); cursor: pointer; text-align: center; }
     .btn:hover { background: transparent; color: var(--white); }
 
-    /* FOOTER */
     .site-footer { padding: 4rem 0; font-size: 0.75rem; font-family: var(--font-sans); text-align: center; color: var(--gray-400); background: var(--white); text-transform: uppercase; letter-spacing: 0.1em; }
 
-    /* RESPONSIVE DESIGN */
     @media (max-width: 900px) {
       .hero-grid, .community-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .hero { padding: 120px 0 60px; text-align: center; }
+      .hero { padding: 140px 0 60px; text-align: center; }
       .hero p.lead { margin: 0 auto 2rem auto; }
       .hero-meta { justify-content: center; }
       .hero-image-container { max-width: 100%; aspect-ratio: 1/1; }
-      
       .gallery-grid { grid-template-columns: 1fr; gap: 1rem; }
       .gallery-item.tall { aspect-ratio: 4/3; }
-      
       .results-grid { grid-template-columns: 1fr; gap: 4rem; }
-      
-      /* Mobile Nav */
       .menu-btn { display: block; }
-      .nav-links {
-        position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-        background: var(--white); flex-direction: column; justify-content: center; align-items: center;
-        gap: 2rem; transform: translateY(-100%); transition: var(--transition); z-index: 100;
-      }
+      .nav-links { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: var(--white); flex-direction: column; justify-content: center; align-items: center; gap: 2rem; transform: translateY(-100%); transition: var(--transition); z-index: 100; }
       .nav-links.active { transform: translateY(0); }
       .nav-links a { font-size: 1.2rem; }
     }
@@ -210,10 +138,15 @@
   </header>
 
   <main>
-    <!-- HERO -->
     <section class="hero" id="about">
       <div class="container hero-grid">
         <div class="reveal">
+          <!-- UPDATED LOGO HERE -->
+          <div class="seal-container">
+            <img src="congress-icon.png" alt="Congress Icon" />
+            <div class="seal-disclaimer">Professional Portfolio • Not an Official Government Site</div>
+          </div>
+          
           <h1>Jeremy<br>Armando<br>Rodriguez</h1>
           <p class="lead">National Campaign Manager & Finance Director. Strategic fundraising, disciplined operations, and community-driven advocacy across the United States.</p>
           <div class="hero-meta">
@@ -228,7 +161,6 @@
       </div>
     </section>
 
-    <!-- EDITORIAL PORTFOLIO GALLERY -->
     <section class="section-dark" id="portfolio">
       <div class="container">
         <div class="reveal">
@@ -237,16 +169,14 @@
         </div>
         
         <div class="gallery-grid">
-          <!-- Image 1: Maxwell Frost -->
           <div class="gallery-item reveal">
-            <img src="frost.jpg" alt="Maxwell Frost for Congress" />
+            <img src="frost.jpg" alt="Maxwell Frost for Congress" style="object-position: top;" />
             <div class="gallery-caption">
               <h3>Maxwell Frost for Congress</h3>
               <p>Finance & Campaign Leadership</p>
             </div>
           </div>
           
-          <!-- Image 2: Magazine Feature (TALL) -->
           <div class="gallery-item tall reveal">
             <img src="magazine.jpg" alt="Influence Magazine Feature" />
             <div class="gallery-caption">
@@ -255,7 +185,6 @@
             </div>
           </div>
 
-          <!-- Image 3: White House (TALL) -->
           <div class="gallery-item tall reveal">
             <img src="whitehouse.jpg" alt="White House Visit" />
             <div class="gallery-caption">
@@ -264,7 +193,6 @@
             </div>
           </div>
 
-          <!-- Image 4: Rally -->
           <div class="gallery-item reveal">
             <img src="rally.jpg" alt="Speaking at Rally" />
             <div class="gallery-caption">
@@ -273,7 +201,6 @@
             </div>
           </div>
 
-          <!-- Image 5: Group Photo (WIDE) -->
           <div class="gallery-item reveal">
             <img src="group.jpg" alt="Community Organizing" />
             <div class="gallery-caption">
@@ -282,7 +209,6 @@
             </div>
           </div>
 
-          <!-- Image 6: Pins -->
           <div class="gallery-item reveal">
             <img src="pins.jpg" alt="Congressional Pins" />
             <div class="gallery-caption">
@@ -291,7 +217,6 @@
             </div>
           </div>
           
-           <!-- Image 7: Anne Douglas (TALL) -->
           <div class="gallery-item tall reveal">
             <img src="anne.jpg" alt="Anne Douglas Campaign" />
             <div class="gallery-caption">
@@ -303,7 +228,6 @@
       </div>
     </section>
 
-    <!-- INTERACTIVE RESULTS -->
     <section id="impact">
       <div class="container">
         <h2 class="reveal">Selected Results</h2>
@@ -324,7 +248,6 @@
       </div>
     </section>
 
-    <!-- COMMUNITY & EXPERTISE -->
     <section id="community" style="background: var(--gray-50);">
       <div class="container community-grid">
         <div class="reveal">
@@ -343,7 +266,6 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section class="section-dark" id="contact">
       <div class="container contact-grid">
         <div class="reveal">
@@ -378,14 +300,12 @@
   </footer>
 
   <script>
-    // 1. STICKY HEADER EFFECT
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) { header.classList.add('scrolled'); } 
       else { header.classList.remove('scrolled'); }
     });
 
-    // 2. MOBILE MENU TOGGLE
     const menuBtn = document.getElementById('menuBtn');
     const navLinks = document.getElementById('navLinks');
     menuBtn.addEventListener('click', () => {
@@ -399,7 +319,6 @@
       });
     });
 
-    // 3. SCROLL REVEAL ANIMATIONS
     const revealElements = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
@@ -411,7 +330,6 @@
     }, { root: null, threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // 4. INTERACTIVE COUNTER ANIMATION
     const counters = document.querySelectorAll('.counter');
     const speed = 200; 
     const counterObserver = new IntersectionObserver((entries, observer) => {
@@ -437,7 +355,6 @@
     }, { threshold: 0.5 });
     counters.forEach(counter => counterObserver.observe(counter));
 
-    // 5. CLICK-TO-COPY EMAIL
     function copyEmail() {
       const email = "jeremyforchange@gmail.com";
       navigator.clipboard.writeText(email).then(() => {
